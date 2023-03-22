@@ -14,29 +14,27 @@ class DriverList(generics.ListAPIView):
             queryset = queryset.filter(driverName=driver)
         return queryset
 
-# Return a single driver
-class DriverDetail(generics.RetrieveAPIView):
+# Return a single driver, added feature to update and delete
+class DriverDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DriverSerializer
     queryset = Driver.objects.all()
-
 
 # Create a single driver
-class DriverCreate(generics.UpdateAPIView):
+class DriverCreate(generics.CreateAPIView):
     serializer_class = DriverSerializer
     queryset = Driver.objects.all()
 
-# RetrieveUpdateDestroyAPIVIew Used for read-write-delete endpoints to represent a single model instance.
-# class DriverDetail(generics.RetrieveUpdateDestroyAPIView):
-#     serializer_class = DriverSerializer
-#     queryset = Driver.objects.all()
+# Create a single truck
+class TruckCreate(generics.CreateAPIView):
+    serializer_class = TruckSerializer
+    queryset = Truck.objects.all()
 
-# ListCreateAPIView Used for read-write endpoints to represent a collection of model instances.
-# class DriverCreate(generics.ListCreateAPIView):
-#     serializer_class = DriverSerializer
+# Return single truck, added feature to update and delete
+class TruckDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = TruckSerializer
+    queryset = Truck.objects.all()
 
-#     def get_queryset(self):
-#         queryset = Driver.objects.all()
-#         driver = self.request.query_params.get('driver')
-#         if driver is not None:
-#             queryset = queryset.filter(driverName=driver)
-#         return queryset
+# Return list of trucks
+class TruckList(generics.ListAPIView):
+    serializer_class = TruckSerializer
+    queryset = Truck.objects.all()

@@ -13,7 +13,7 @@ class Driver(models.Model):
     email = models.EmailField()
     city = models.CharField(max_length=50)
     district = models.CharField(max_length=50)
-    assigned_truck = models.ForeignKey(Truck,on_delete=models.CASCADE)
+    assigned_truck = models.ForeignKey(Truck, on_delete=models.CASCADE)
     date_added = models.DateField(auto_now_add=True)
 
     def __str__(self):
