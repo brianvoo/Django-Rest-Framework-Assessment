@@ -3,6 +3,7 @@ from django.db import models
 class Truck(models.Model):
     number_plate = models.CharField(max_length=50, unique=True)
     registration_plate = models.CharField(max_length=50, unique=True)
+    date_added = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.number_plate
