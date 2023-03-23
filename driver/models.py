@@ -6,6 +6,10 @@ class Truck(models.Model):
 
     def __str__(self):
         return self.number_plate
+    
+def get_default_status():
+    """ get a default value for action status; create new status if not available """
+    return Truck.objects.get_or_create(number_plate="Not Assigned", registration_plate="Not Assigned")[0]
 
 class Driver(models.Model):
     driverName = models.CharField(max_length=100)
@@ -13,7 +17,7 @@ class Driver(models.Model):
     email = models.EmailField()
     city = models.CharField(max_length=50)
     district = models.CharField(max_length=50)
-    assigned_truck = models.ForeignKey(Truck,on_delete=models.CASCADE)
+    assigned_truck = models.ForeignKey(Truck, default=get_default_status, on_delete=models.CASCADE)
     date_added = models.DateField(auto_now_add=True)
 
     def __str__(self):
