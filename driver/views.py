@@ -22,9 +22,10 @@ class DriverList(generics.ListAPIView):
     def get_queryset(self):
         queryset = Driver.objects.all()
         
-        driver = self.request.query_params.get('driver')
-        if driver is not None:
-            queryset = queryset.filter(driverName=driver)
+        assigned_truck = self.request.query_params.get('assigned_truck')
+        if assigned_truck is not None:
+            # To query which driver is assigned to the same truck
+            queryset = queryset.filter(assigned_truck=assigned_truck)
         return queryset
 
     filterset_fields = (

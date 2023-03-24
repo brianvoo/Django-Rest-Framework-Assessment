@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 # Validator
 alpha_validator = RegexValidator(regex='^[a-zA-Z]+([-][a-zA-Z]+)?$', message='Only alphabets allowed.')
 truck_validator = RegexValidator(regex='^[a-zA-Z0-9]+$', message='Please enter valid format.')
-phone_validator = RegexValidator(regex='^[0-9]$', message='Please input digits only.')
+phone_validator = RegexValidator(regex='^[0-9]{10,11}$', message='Please input digits only.')
 
 class Truck(models.Model):
     number_plate = models.CharField(max_length=50, unique=True, verbose_name="Number Plate", validators=[truck_validator])
