@@ -1,4 +1,4 @@
-# Horizons 45 Backend Test
+# Backend Test Assessment
 
 A Django REST API server that exposes a list of drivers and trucks built using Python 3.10, pipenv, Django REST Framework and Postgresql.
 
@@ -6,7 +6,7 @@ A Django REST API server that exposes a list of drivers and trucks built using P
 - **Python 3.10:** Used as it was the last version I had installed in mid 2022.
 - **pipenv:** Managing Python dependencies and virtual environments, much easier to use than venv as it auto generates the Pipfile and Pipfile.lock for other users who clone to quickly get the project up and running.
 - **Django REST Framework:** Toolkit to build web API, easy to output web api views.
-- **Postresql:** Easy to implement with Django.
+- **Postgresql:** Easy to implement with Django.
 
 ## Potential improvements
 - User authentication to protect API endpoints from add/update/delete.
@@ -17,9 +17,6 @@ A Django REST API server that exposes a list of drivers and trucks built using P
 - City, district and language could implement choice based on userbase to reduce user input errors.
 - Included date added for both models for filtering (filter not implemented, but best case would be to filter year and/or month to get accurate data).
 - Combine driver/id to also show driver's assigned truck/id details in 1 page for better information flow. 
-
-## Production considerations
-*Unsure what to write here*
 
 ## Assumptions
 ### Schema design
